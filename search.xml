@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>Become a blogger</title>
+      <link href="/2020/07/06/become-a-blogger/"/>
+      <url>/2020/07/06/become-a-blogger/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Become-a-blogger"><a href="#Become-a-blogger" class="headerlink" title="Become a blogger"></a>Become a blogger</h1><p>Objective: Create a personal blog using hexo and github pages</p><p>OS enviroment: Ubuntu 18.04</p><h2 id="Install-the-necessary-softwares"><a href="#Install-the-necessary-softwares" class="headerlink" title="Install the necessary softwares"></a>Install the necessary softwares</h2><ol><li>Install the Git <code>$ sudo apt-get install git-core</code></li><li>Install the Nodejs <code>$ sudo apt-get install nodejs</code></li><li>Install the Hexo<pre><code>$ sudo apt-get install npm$ npm install -g hexo-cli</code></pre></li></ol><h2 id="Setup-the-blog"><a href="#Setup-the-blog" class="headerlink" title="Setup the blog"></a>Setup the blog</h2><ol><li>Initialize hexo in target folder “BlogSite”<pre><code>$ hexo init BlogSite$ cd BlogSite$ npm install</code></pre></li><li>Configure the basic information about the blog in file “_config.yml”</li></ol><h2 id="Change-the-theme-to-matery"><a href="#Change-the-theme-to-matery" class="headerlink" title="Change the theme to matery"></a>Change the theme to matery</h2><ol><li>Clone the matery theme files <code>$ git clone https://github.com/blinkfox/hexo-theme-matery.git</code></li><li>Change the theme in configuration file “_config.yml”</li><li>Create menu pages<pre><code>$ hexo new page "categories"$ hexo new page "tags"$ hexo new page "about"$ hexo new page "contact"$ hexo new page "friends"</code></pre></li><li>Edit the contents of pages in “/source/<page>/index”</page></li><li>Configure highlight <code>$ npm i -S hexo-prism-plugin</code></li><li>Configure searching <code>$ npm install hexo-generator-search --save</code></li><li>Configure Pinyin link <code>$ npm i hexo-permalink-pinyin --save</code></li><li>Configure wordcount <code>$ npm i hexo-wordcount --save</code></li><li>Configure emoji <code>$ npm install hexo-filter-github-emojis --save</code></li><li>Configure RSS <code>$ npm install hexo-generator-feed --save</code></li></ol><h2 id="Configure-Github-Pages"><a href="#Configure-Github-Pages" class="headerlink" title="Configure Github Pages"></a>Configure Github Pages</h2><ol><li>Sign up github and create a new repository with the github username</li><li>Configure SSH<pre><code>$ ssh-keygen -t rsa -C "your_email@example.com"$ cat ~/.ssh/id_rsa.pub</code></pre></li><li>Copy the rsa key to the github</li><li>Test the connection <code>$ ssh -T git@github.com</code></li><li>Configure personal information</li></ol><h2 id="Deploy-to-github"><a href="#Deploy-to-github" class="headerlink" title="Deploy to github"></a>Deploy to github</h2><ol><li>Edit the blog configuration file “_config.yml”</li><li>Deploy to github<pre><code>$ cd BlogSite$ hexo clean$ hexo g -d</code></pre></li><li>Open the browser and enter the url of your address</li></ol><p>Reference:</p><ul><li><a href="https://hexo.io./zh-cn/docs" target="_blank" rel="noopener">https://hexo.io./zh-cn/docs</a></li><li><a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery</a></li><li><a href="https://blog.csdn.net/grave2015/article/details/79961843" target="_blank" rel="noopener">https://blog.csdn.net/grave2015/article/details/79961843</a></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Github Pages </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2020/07/01/hello-world/"/>
       <url>/2020/07/01/hello-world/</url>

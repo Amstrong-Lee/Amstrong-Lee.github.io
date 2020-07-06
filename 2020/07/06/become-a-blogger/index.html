@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Endless">
+    <meta name="keywords" content="Become a blogger, Endless">
     <meta name="description" content="Roses given, fragrance in hand.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Endless</title>
+    <title>Become a blogger | Endless</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Become a blogger</h1>
                 </div>
             </div>
         </div>
@@ -430,9 +430,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
+                            </a>
+                        
+                            <a href="/tags/Github-Pages/">
+                                <span class="chip bg-color">Github Pages</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -444,7 +452,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-01
+                    2020-07-06
                 </div>
                 
 
@@ -453,14 +461,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    125
+                    337
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -475,15 +483,57 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <h1 id="Become-a-blogger"><a href="#Become-a-blogger" class="headerlink" title="Become a blogger"></a>Become a blogger</h1><p>Objective: Create a personal blog using hexo and github pages</p>
+<p>OS enviroment: Ubuntu 18.04</p>
+<h2 id="Install-the-necessary-softwares"><a href="#Install-the-necessary-softwares" class="headerlink" title="Install the necessary softwares"></a>Install the necessary softwares</h2><ol>
+<li>Install the Git <code>$ sudo apt-get install git-core</code></li>
+<li>Install the Nodejs <code>$ sudo apt-get install nodejs</code></li>
+<li>Install the Hexo<pre><code>$ sudo apt-get install npm
+$ npm install -g hexo-cli</code></pre></li>
+</ol>
+<h2 id="Setup-the-blog"><a href="#Setup-the-blog" class="headerlink" title="Setup the blog"></a>Setup the blog</h2><ol>
+<li>Initialize hexo in target folder “BlogSite”<pre><code>$ hexo init BlogSite
+$ cd BlogSite
+$ npm install</code></pre></li>
+<li>Configure the basic information about the blog in file “_config.yml”</li>
+</ol>
+<h2 id="Change-the-theme-to-matery"><a href="#Change-the-theme-to-matery" class="headerlink" title="Change the theme to matery"></a>Change the theme to matery</h2><ol>
+<li>Clone the matery theme files <code>$ git clone https://github.com/blinkfox/hexo-theme-matery.git</code></li>
+<li>Change the theme in configuration file “_config.yml”</li>
+<li>Create menu pages<pre><code>$ hexo new page "categories"
+$ hexo new page "tags"
+$ hexo new page "about"
+$ hexo new page "contact"
+$ hexo new page "friends"</code></pre></li>
+<li>Edit the contents of pages in “/source/<page>/index”</page></li>
+<li>Configure highlight <code>$ npm i -S hexo-prism-plugin</code></li>
+<li>Configure searching <code>$ npm install hexo-generator-search --save</code></li>
+<li>Configure Pinyin link <code>$ npm i hexo-permalink-pinyin --save</code></li>
+<li>Configure wordcount <code>$ npm i hexo-wordcount --save</code></li>
+<li>Configure emoji <code>$ npm install hexo-filter-github-emojis --save</code></li>
+<li>Configure RSS <code>$ npm install hexo-generator-feed --save</code></li>
+</ol>
+<h2 id="Configure-Github-Pages"><a href="#Configure-Github-Pages" class="headerlink" title="Configure Github Pages"></a>Configure Github Pages</h2><ol>
+<li>Sign up github and create a new repository with the github username</li>
+<li>Configure SSH<pre><code>$ ssh-keygen -t rsa -C "your_email@example.com"
+$ cat ~/.ssh/id_rsa.pub</code></pre></li>
+<li>Copy the rsa key to the github</li>
+<li>Test the connection <code>$ ssh -T git@github.com</code></li>
+<li>Configure personal information</li>
+</ol>
+<h2 id="Deploy-to-github"><a href="#Deploy-to-github" class="headerlink" title="Deploy to github"></a>Deploy to github</h2><ol>
+<li>Edit the blog configuration file “_config.yml”</li>
+<li>Deploy to github<pre><code>$ cd BlogSite
+$ hexo clean
+$ hexo g -d</code></pre></li>
+<li>Open the browser and enter the url of your address</li>
+</ol>
+<p>Reference:</p>
+<ul>
+<li><a href="https://hexo.io./zh-cn/docs" target="_blank" rel="noopener">https://hexo.io./zh-cn/docs</a></li>
+<li><a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery</a></li>
+<li><a href="https://blog.csdn.net/grave2015/article/details/79961843" target="_blank" rel="noopener">https://blog.csdn.net/grave2015/article/details/79961843</a></li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -527,7 +577,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/01/hello-world/">http://yoursite.com/2020/07/01/hello-world/</a>
+                    <a href="http://yoursite.com/2020/07/06/become-a-blogger/">http://yoursite.com/2020/07/06/become-a-blogger/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -564,7 +614,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
+                                </a>
+                            
+                                <a href="/tags/Github-Pages/">
+                                    <span class="chip bg-color">Github Pages</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -730,9 +788,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2020/07/06/become-a-blogger/">
                     <div class="card-image">
@@ -752,9 +811,9 @@ Install the ne
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -763,6 +822,7 @@ Install the ne
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -782,7 +842,7 @@ Install the ne
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2020/07/01/hello-world/">
@@ -812,7 +872,6 @@ Install the ne
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
