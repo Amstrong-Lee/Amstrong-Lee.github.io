@@ -4,6 +4,85 @@
   
     
     <entry>
+      <title>Jupyter notebook配置</title>
+      <link href="/2020/08/10/jupiter-notebook-pei-zhi/"/>
+      <url>/2020/08/10/jupiter-notebook-pei-zhi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Jupyter-notebook-配置"><a href="#Jupyter-notebook-配置" class="headerlink" title="Jupyter notebook 配置"></a>Jupyter notebook 配置</h1><h2 id="远程登录配置"><a href="#远程登录配置" class="headerlink" title="远程登录配置"></a>远程登录配置</h2><p>进入python 环境,输入下面语句</p><pre><code>&gt;&gt;&gt;from notebook.auth import passwd&gt;&gt;&gt;passwd()</code></pre><p>根据提示输入两遍要设置的密码,即可生成sha1的密文.</p><p>生成配置文件<br><code>jupyter notebook --generate-config</code><br>打开配置文件进行相关设置<br><code>vi ~/.jupyter/jupyter_notebook_config.py</code></p><pre><code>c.NotebookApp.ip = '*'  # 设置局域网内所有IP均可访问c.NotebookApp.password = u'sha1:...'  # 设置密码,填入上面生成的sha1密文c.NotebookApp.open_browser = False  # 设置不自动打开浏览器c.NotebookApp.port = '8888'  # 设置访问端口c.NotebookApp.notebook_dir = '/home/user/Jupyter'  # 设置工作目录</code></pre><h2 id="添加Anaconda虚拟环境"><a href="#添加Anaconda虚拟环境" class="headerlink" title="添加Anaconda虚拟环境"></a>添加Anaconda虚拟环境</h2><p>切换虚拟环境｀source activate ＜env_name&gt;｀</p><p>虚拟环境中安装ipykernel包并设置Notebook中显示的环境名称</p><pre><code>conda install ipykernelpython -m ipykernel install --user --name &lt;env_name&gt; --display-name "&lt;display_name&gt;"</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Jupyter </tag>
+            
+            <tag> Anacondas </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode-1 两数之和</title>
+      <link href="/2020/08/05/leetcode-1-liang-shu-zhi-he/"/>
+      <url>/2020/08/05/leetcode-1-liang-shu-zhi-he/</url>
+      
+        <content type="html"><![CDATA[<h1 id="LeetCode-1-两数之和"><a href="#LeetCode-1-两数之和" class="headerlink" title="LeetCode 1# 两数之和"></a>LeetCode 1# 两数之和</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个整数数组<code>nums</code>和一个目标值<code>target</code>,请在该数组中找出和为目标值的那两个整数,并返回他们的数组下标.</p><p>可以假设每种输入只会对应一个答案,但数组中同一元素不能使用两遍.</p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre><code>给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返回[0, 1]</code></pre><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>解法主要有2种:</p><ul><li>暴力穷举</li><li>哈希求解</li></ul><h3 id="暴力穷举"><a href="#暴力穷举" class="headerlink" title="暴力穷举"></a>暴力穷举</h3><p>通过两遍遍历寻找满足条件的两个值</p><pre><code>def two_sum(nums, target):    if len(nums) &lt; 2:        print("The number of nums is samller than two!")    else:        for i in range(len(nums) - 1):            for j in range(i+1, len(nums)):                if nums[i] + nums[j] = target:                    return [i, j]                else:                    continue</code></pre><p>通过一遍遍历每次寻找数组中是否存在另一个值和目标值与当前值的差相等</p><pre><code>def two_sum(nums, target):    if len(nums) &lt; 2:        print("The number of nums is samller than two!")    else:        for i in range(len(nums)):            val = target - nums[i]            if val in nums:                if i != nums.index(val):                    return [i, j]                else:                    continue            else:                continue</code></pre><h3 id="哈希求解"><a href="#哈希求解" class="headerlink" title="哈希求解"></a>哈希求解</h3><p>将数组值下标放入哈希表中,然后在哈希表中查找满足条件的两个值.使用字典来构建哈希表</p><pre><code>def two_sum(nums, target):    if len(nums) &lt; 2:        print("The number of nums is samller than two!")    else:        hash_dic = {}        for i in range(len(nums)):            hash_dic[target - nums[i]] = i        for i in range(len(nums)):            j = hash_dic.get(target - nums[i])            if j is not None and i != j:                return [i, j]</code></pre><p>在构建哈希表的同时进行搜索</p><pre><code>def two_sum(nums, target):    if len(nums) &lt; 2:        print("The number of nums is samller than two!")    else:        hash_dic = {}        for i in range(len(nums)):            if hash_dic.get(target - nums[i]) is not None:                return [i,hash_dic.get(target - nums[i]) ]            hash_dic[target - nums[i]] = i</code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu Network Setting</title>
+      <link href="/2020/07/10/ubuntu-network-setting/"/>
+      <url>/2020/07/10/ubuntu-network-setting/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Ubuntu网络设置"><a href="#Ubuntu网络设置" class="headerlink" title="Ubuntu网络设置"></a>Ubuntu网络设置</h1><p>目标： 解决Server版Ubuntu安装桌面后网络设置中看不到网卡，但命令行中可以看到</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li>更改网络配置程序为NetworkManager</li></ol><p>编辑netplan配置文件50-cloud-init.yml： <code>$ sudo vi /etc/netplan/50-cloud-init.yml</code></p><pre><code>network:    ethernets:        ens33:        addresses: []        dhcp4:        optional:    version: 2    renderer: NetworkManager</code></pre><p>配置生效： <code>$ sudo netplan apply</code></p><ol start="2"><li>修改NetworkManager设置<br>修改配置文件中“managed=false”为“managed=true”<pre><code>$ sudo vi /etc/NetworkManager/NetworkManager.conf[main]plugins=ifupdown,keyfile[ifupdown]managed=true[device]wifi.scan-rand-mac-address=no</code></pre></li></ol><p>重启network-manager服务</p><pre><code>$ sudo service network-manager stop$ sudo rm /var/lib/NetworkManager/NetworkManager.state$ sudo service network-manager start</code></pre><h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><p>Ubuntu 17.10引入了一个新的网络配置实用程序——netplan，后续版本中均使用该程序进行网络管理和配置。netplan有两个网络守护程序可以使用，分别为NetworkManager和Systemd-network。NetworkManager主要用于桌面系统的网络管理，Systemd-network则是用于服务器系统的网络管理。Ubuntu Server安装后默认使用Systemd-network进行网络配置，因此安装桌面系统之后更改网络管理程序为NetworkManage。</p><pre><code>renderer: NetworkManager # NetworkManagerrenderer: networkd # Systemd-network</code></pre><p>Reference:</p><ul><li><a href="https://blog.csdn.net/qq_44345567/article/details/106039844" target="_blank" rel="noopener">https://blog.csdn.net/qq_44345567/article/details/106039844</a></li><li><a href="https://blog.csdn.net/bobozai86/article/details/90714858" target="_blank" rel="noopener">https://blog.csdn.net/bobozai86/article/details/90714858</a></li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+            <tag> Network </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Become a blogger</title>
       <link href="/2020/07/06/become-a-blogger/"/>
       <url>/2020/07/06/become-a-blogger/</url>
@@ -32,6 +111,12 @@
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> Hello </tag>
+            
+        </tags>
       
     </entry>
     

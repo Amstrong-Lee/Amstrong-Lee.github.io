@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-06T15:00:14.512Z</updated>
+  <updated>2020-08-09T16:56:56.035Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,91 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jupyter notebook配置</title>
+    <link href="http://yoursite.com/2020/08/10/jupiter-notebook-pei-zhi/"/>
+    <id>http://yoursite.com/2020/08/10/jupiter-notebook-pei-zhi/</id>
+    <published>2020-08-09T16:28:36.000Z</published>
+    <updated>2020-08-09T16:56:56.035Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Jupyter-notebook-配置&quot;&gt;&lt;a href=&quot;#Jupyter-notebook-配置&quot; class=&quot;headerlink&quot; title=&quot;Jupyter notebook 配置&quot;&gt;&lt;/a&gt;Jupyter notebook 配置&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="Jupyter" scheme="http://yoursite.com/tags/Jupyter/"/>
+    
+      <category term="Anacondas" scheme="http://yoursite.com/tags/Anacondas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode-1 两数之和</title>
+    <link href="http://yoursite.com/2020/08/05/leetcode-1-liang-shu-zhi-he/"/>
+    <id>http://yoursite.com/2020/08/05/leetcode-1-liang-shu-zhi-he/</id>
+    <published>2020-08-04T16:36:41.000Z</published>
+    <updated>2020-08-04T20:01:08.463Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;LeetCode-1-两数之和&quot;&gt;&lt;a href=&quot;#LeetCode-1-两数之和&quot; class=&quot;headerlink&quot; title=&quot;LeetCode 1# 两数之和&quot;&gt;&lt;/a&gt;LeetCode 1# 两数之和&lt;/h1&gt;&lt;h2 id=&quot;题目&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu Network Setting</title>
+    <link href="http://yoursite.com/2020/07/10/ubuntu-network-setting/"/>
+    <id>http://yoursite.com/2020/07/10/ubuntu-network-setting/</id>
+    <published>2020-07-10T01:43:34.000Z</published>
+    <updated>2020-07-10T03:07:10.071Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Ubuntu网络设置&quot;&gt;&lt;a href=&quot;#Ubuntu网络设置&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu网络设置&quot;&gt;&lt;/a&gt;Ubuntu网络设置&lt;/h1&gt;&lt;p&gt;目标：
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="Network" scheme="http://yoursite.com/tags/Network/"/>
+    
+  </entry>
   
   <entry>
     <title>Become a blogger</title>
@@ -47,8 +132,8 @@
     <title>Hello World</title>
     <link href="http://yoursite.com/2020/07/01/hello-world/"/>
     <id>http://yoursite.com/2020/07/01/hello-world/</id>
-    <published>2020-07-01T08:49:52.460Z</published>
-    <updated>2020-07-01T08:49:52.460Z</updated>
+    <published>2020-06-30T16:36:41.000Z</published>
+    <updated>2020-08-04T19:25:51.915Z</updated>
     
     <summary type="html">
     
@@ -63,6 +148,8 @@
     </summary>
     
     
+    
+      <category term="Hello" scheme="http://yoursite.com/tags/Hello/"/>
     
   </entry>
   
