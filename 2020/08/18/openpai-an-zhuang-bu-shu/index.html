@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LeetCode-1 两数之和, Endless">
+    <meta name="keywords" content="OpenPAI安装部署, Endless">
     <meta name="description" content="Roses given, fragrance in hand.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LeetCode-1 两数之和 | Endless</title>
+    <title>OpenPAI安装部署 | Endless</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode-1 两数之和</h1>
+                    <h1 class="description center-align post-title">OpenPAI安装部署</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LeetCode/">
-                                <span class="chip bg-color">LeetCode</span>
+                            <a href="/tags/OpenPAI/">
+                                <span class="chip bg-color">OpenPAI</span>
+                            </a>
+                        
+                            <a href="/tags/Deep-learning/">
+                                <span class="chip bg-color">Deep learning</span>
                             </a>
                         
                     </div>
@@ -444,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Technology/" class="post-category">
-                                Technology
+                            <a href="/categories/Cluster/" class="post-category">
+                                Cluster
                             </a>
                         
                     </div>
@@ -457,7 +461,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-05
+                    2020-08-18
                 </div>
                 
 
@@ -466,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    477
+                    545
                 </div>
                 
 
@@ -488,62 +492,71 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LeetCode-1-两数之和"><a href="#LeetCode-1-两数之和" class="headerlink" title="LeetCode 1# 两数之和"></a>LeetCode 1# 两数之和</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个整数数组<code>nums</code>和一个目标值<code>target</code>,请在该数组中找出和为目标值的那两个整数,并返回他们的数组下标.</p>
-<p>可以假设每种输入只会对应一个答案,但数组中同一元素不能使用两遍.</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre><code>给定 nums = [2, 7, 11, 15], target = 9
-因为 nums[0] + nums[1] = 2 + 7 = 9
-所以返回[0, 1]</code></pre><h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>解法主要有2种:</p>
+                <h1 id="OpenPAI-安装部署"><a href="#OpenPAI-安装部署" class="headerlink" title="OpenPAI 安装部署"></a>OpenPAI 安装部署</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>三类主机</p>
 <ul>
-<li>暴力穷举</li>
-<li>哈希求解</li>
+<li>Dev Box<ul>
+<li>Ubuntu 16.04(18.04 也可以)</li>
+<li>共享相同的用户名密码并具有超级权限,可SSH免密登录至其他主机</li>
+<li>安装Docker</li>
 </ul>
-<h3 id="暴力穷举"><a href="#暴力穷举" class="headerlink" title="暴力穷举"></a>暴力穷举</h3><p>通过两遍遍历寻找满足条件的两个值</p>
-<pre><code>def two_sum(nums, target):
-    if len(nums) &lt; 2:
-        print("The number of nums is samller than two!")
-    else:
-        for i in range(len(nums) - 1):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] = target:
-                    return [i, j]
-                else:
-                    continue
-</code></pre><p>通过一遍遍历每次寻找数组中是否存在另一个值和目标值与当前值的差相等</p>
-<pre><code>def two_sum(nums, target):
-    if len(nums) &lt; 2:
-        print("The number of nums is samller than two!")
-    else:
-        for i in range(len(nums)):
-            val = target - nums[i]
-            if val in nums:
-                if i != nums.index(val):
-                    return [i, j]
-                else:
-                    continue
-            else:
-                continue</code></pre><h3 id="哈希求解"><a href="#哈希求解" class="headerlink" title="哈希求解"></a>哈希求解</h3><p>将数组值下标放入哈希表中,然后在哈希表中查找满足条件的两个值.使用字典来构建哈希表</p>
-<pre><code>def two_sum(nums, target):
-    if len(nums) &lt; 2:
-        print("The number of nums is samller than two!")
-    else:
-        hash_dic = {}
-        for i in range(len(nums)):
-            hash_dic[target - nums[i]] = i
-        for i in range(len(nums)):
-            j = hash_dic.get(target - nums[i])
-            if j is not None and i != j:
-                return [i, j]
-</code></pre><p>在构建哈希表的同时进行搜索</p>
-<pre><code>def two_sum(nums, target):
-    if len(nums) &lt; 2:
-        print("The number of nums is samller than two!")
-    else:
-        hash_dic = {}
-        for i in range(len(nums)):
-            if hash_dic.get(target - nums[i]) is not None:
-                return [i,hash_dic.get(target - nums[i]) ]
-            hash_dic[target - nums[i]] = i
-</code></pre><script>
+</li>
+<li>Master<ul>
+<li>Ubuntu 16.04(18.04 也可以)</li>
+<li>静态IP，可与其他主机通信</li>
+<li>共享相同的用户名密码并具有超级权限,开启SSH服务</li>
+<li>开启NTP服务</li>
+<li>足够的处理器和内存资源，内存至少32GB</li>
+</ul>
+</li>
+<li>Worker<ul>
+<li>Ubuntu 16.04(18.04 也可以)</li>
+<li>静态IP，可与其他主机通信</li>
+<li>共享相同的用户名密码并具有超级权限,开启SSH服务</li>
+<li>安装GPU驱动， <code>nvidia-smi</code></li>
+<li>安装Docker, <code>docker --version</code></li>
+<li>安装nvidia-container-runtime, <code>sudo docker run nvidia/cuda:11.0-base nvidia-smi</code></li>
+<li>足够的处理器和内存资源，内存至少32GB</li>
+</ul>
+</li>
+</ul>
+<h2 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h2><p>所有操作均在Dev Box主机进行</p>
+<ul>
+<li>准备三个文件：master.csv，worker.csv，config</li>
+</ul>
+<p>master.csv和worker.csv格式(小写，无空格):<code>hostname,host-ip</code></p>
+<p>config:</p>
+<pre><code>user: &lt;ssh用户&gt;
+password: &lt;ssh密码&gt;
+branch_name: pai-1.1.y
+docker_image_tag: v1.1.1
+
+gcr_image_repo: "gcr.azk8s.cn"
+kube_image_repo: "gcr.azk8s.cn/google-containers"
+kubeadm_download_url: "https://shaiictestblob01.blob.core.chinacloudapi.cn/share-all/kubeadm"
+hyperkube_download_url: "https://shaiictestblob01.blob.core.chinacloudapi.cn/share-all/hyperkube"
+
+openpai_kubespray_extra_var:
+  pod_infra_image_repo: "gcr.azk8s.cn/google_containers/pause-{{ image_arch }}"
+  dnsautoscaler_image_repo: "gcr.azk8s.cn/google_containers/cluster-proportional-autoscaler-{{ image_arch }}"
+  tiller_image_repo: "gcr.azk8s.cn/kubernetes-helm/tiller"
+  registry_proxy_image_repo: "gcr.azk8s.cn/google_containers/kube-registry-proxy"
+  metrics_server_image_repo: "gcr.azk8s.cn/google_containers/metrics-server-amd64"
+  addon_resizer_image_repo: "gcr.azk8s.cn/google_containers/addon-resizer"
+  dashboard_image_repo: "gcr.azk8s.cn/google_containers/kubernetes-dashboard-{{ image_arch }}"</code></pre><p>国内安装可将镜像源‘gcr.azk8s.cn’更换为：</p>
+<pre><code>registry.cn-hangzhou.aliyuncs.com/google_containers/
+registry.cn-hangzhou.aliyuncs.com/vinc-k8s/</code></pre><ul>
+<li>开始安装<pre><code>git clone https://github.com/microsoft/pai.git
+git checkout pai-1.1.y  # change to a different branch if you want to deploy a different version
+cd pai/contrib/kubespray
+
+</code></pre></li>
+</ul>
+<p>/bin/bash quick-start-kubespray.sh -m /path/to/master.csv -w /path/to/worker.csv -c /path/to/config</p>
+<p>/bin/bash quick-start-service.sh -m /path/to/master.csv -w /path/to/worker.csv -c /path/to/config</p>
+<pre><code>
+- 安装结束</code></pre><p>Kubernetes cluster config :     ~/pai-deploy/kube/config<br>OpenPAI cluster config    :     ~/pai-deploy/cluster-cfg<br>OpenPAI cluster ID        :     pai<br>Default username          :     admin<br>Default password          :     admin-password</p>
+<p>You can go to http://<your-master-ip>, then use the default username and password to log in.</your-master-ip></p>
+<pre><code></code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -586,7 +599,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/08/05/leetcode-1-liang-shu-zhi-he/">http://yoursite.com/2020/08/05/leetcode-1-liang-shu-zhi-he/</a>
+                    <a href="http://yoursite.com/2020/08/18/openpai-an-zhuang-bu-shu/">http://yoursite.com/2020/08/18/openpai-an-zhuang-bu-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,8 +637,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/LeetCode/">
-                                    <span class="chip bg-color">LeetCode</span>
+                                <a href="/tags/OpenPAI/">
+                                    <span class="chip bg-color">OpenPAI</span>
+                                </a>
+                            
+                                <a href="/tags/Deep-learning/">
+                                    <span class="chip bg-color">Deep learning</span>
                                 </a>
                             
                         </div>
@@ -793,9 +810,73 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2020/08/18/openpai-an-zhuang-bu-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="OpenPAI安装部署">
+                        
+                        <span class="card-title">OpenPAI安装部署</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            OpenPAI 安装部署准备工作三类主机
+
+Dev Box
+Ubuntu 16.04(18.04 也可以)
+共享相同的用户名密码并具有超级权限,可SSH免密登录至其他主机
+安装Docker
+
+
+Master
+Ubuntu 16.04(18.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Cluster/" class="post-category">
+                                    Cluster
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/OpenPAI/">
+                        <span class="chip bg-color">OpenPAI</span>
+                    </a>
+                    
+                    <a href="/tags/Deep-learning/">
+                        <span class="chip bg-color">Deep learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/08/10/jupiter-notebook-pei-zhi/">
                     <div class="card-image">
@@ -815,9 +896,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -839,63 +920,6 @@
                     
                     <a href="/tags/Anacondas/">
                         <span class="chip bg-color">Anacondas</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/10/ubuntu-network-setting/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Ubuntu Network Setting">
-                        
-                        <span class="card-title">Ubuntu Network Setting</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Ubuntu网络设置目标： 解决Server版Ubuntu安装桌面后网络设置中看不到网卡，但命令行中可以看到
-解决方法
-更改网络配置程序为NetworkManager
-
-编辑netplan配置文件50-cloud-init.yml： $ s
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Technology/" class="post-category">
-                                    Technology
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Ubuntu/">
-                        <span class="chip bg-color">Ubuntu</span>
-                    </a>
-                    
-                    <a href="/tags/Network/">
-                        <span class="chip bg-color">Network</span>
                     </a>
                     
                 </div>

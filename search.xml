@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>OpenPAI安装部署</title>
+      <link href="/2020/08/18/openpai-an-zhuang-bu-shu/"/>
+      <url>/2020/08/18/openpai-an-zhuang-bu-shu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="OpenPAI-安装部署"><a href="#OpenPAI-安装部署" class="headerlink" title="OpenPAI 安装部署"></a>OpenPAI 安装部署</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>三类主机</p><ul><li>Dev Box<ul><li>Ubuntu 16.04(18.04 也可以)</li><li>共享相同的用户名密码并具有超级权限,可SSH免密登录至其他主机</li><li>安装Docker</li></ul></li><li>Master<ul><li>Ubuntu 16.04(18.04 也可以)</li><li>静态IP，可与其他主机通信</li><li>共享相同的用户名密码并具有超级权限,开启SSH服务</li><li>开启NTP服务</li><li>足够的处理器和内存资源，内存至少32GB</li></ul></li><li>Worker<ul><li>Ubuntu 16.04(18.04 也可以)</li><li>静态IP，可与其他主机通信</li><li>共享相同的用户名密码并具有超级权限,开启SSH服务</li><li>安装GPU驱动， <code>nvidia-smi</code></li><li>安装Docker, <code>docker --version</code></li><li>安装nvidia-container-runtime, <code>sudo docker run nvidia/cuda:11.0-base nvidia-smi</code></li><li>足够的处理器和内存资源，内存至少32GB</li></ul></li></ul><h2 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h2><p>所有操作均在Dev Box主机进行</p><ul><li>准备三个文件：master.csv，worker.csv，config</li></ul><p>master.csv和worker.csv格式(小写，无空格):<code>hostname,host-ip</code></p><p>config:</p><pre><code>user: &lt;ssh用户&gt;password: &lt;ssh密码&gt;branch_name: pai-1.1.ydocker_image_tag: v1.1.1gcr_image_repo: "gcr.azk8s.cn"kube_image_repo: "gcr.azk8s.cn/google-containers"kubeadm_download_url: "https://shaiictestblob01.blob.core.chinacloudapi.cn/share-all/kubeadm"hyperkube_download_url: "https://shaiictestblob01.blob.core.chinacloudapi.cn/share-all/hyperkube"openpai_kubespray_extra_var:  pod_infra_image_repo: "gcr.azk8s.cn/google_containers/pause-{{ image_arch }}"  dnsautoscaler_image_repo: "gcr.azk8s.cn/google_containers/cluster-proportional-autoscaler-{{ image_arch }}"  tiller_image_repo: "gcr.azk8s.cn/kubernetes-helm/tiller"  registry_proxy_image_repo: "gcr.azk8s.cn/google_containers/kube-registry-proxy"  metrics_server_image_repo: "gcr.azk8s.cn/google_containers/metrics-server-amd64"  addon_resizer_image_repo: "gcr.azk8s.cn/google_containers/addon-resizer"  dashboard_image_repo: "gcr.azk8s.cn/google_containers/kubernetes-dashboard-{{ image_arch }}"</code></pre><p>国内安装可将镜像源‘gcr.azk8s.cn’更换为：</p><pre><code>registry.cn-hangzhou.aliyuncs.com/google_containers/registry.cn-hangzhou.aliyuncs.com/vinc-k8s/</code></pre><ul><li>开始安装<pre><code>git clone https://github.com/microsoft/pai.gitgit checkout pai-1.1.y  # change to a different branch if you want to deploy a different versioncd pai/contrib/kubespray</code></pre></li></ul><p>/bin/bash quick-start-kubespray.sh -m /path/to/master.csv -w /path/to/worker.csv -c /path/to/config</p><p>/bin/bash quick-start-service.sh -m /path/to/master.csv -w /path/to/worker.csv -c /path/to/config</p><pre><code>- 安装结束</code></pre><p>Kubernetes cluster config :     ~/pai-deploy/kube/config<br>OpenPAI cluster config    :     ~/pai-deploy/cluster-cfg<br>OpenPAI cluster ID        :     pai<br>Default username          :     admin<br>Default password          :     admin-password</p><p>You can go to http://<your-master-ip>, then use the default username and password to log in.</your-master-ip></p><pre><code></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Cluster </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OpenPAI </tag>
+            
+            <tag> Deep learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Jupyter notebook配置</title>
       <link href="/2020/08/10/jupiter-notebook-pei-zhi/"/>
       <url>/2020/08/10/jupiter-notebook-pei-zhi/</url>

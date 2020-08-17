@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-09T16:56:56.035Z</updated>
+  <updated>2020-08-17T19:29:00.846Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OpenPAI安装部署</title>
+    <link href="http://yoursite.com/2020/08/18/openpai-an-zhuang-bu-shu/"/>
+    <id>http://yoursite.com/2020/08/18/openpai-an-zhuang-bu-shu/</id>
+    <published>2020-08-17T18:21:20.000Z</published>
+    <updated>2020-08-17T19:29:00.846Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;OpenPAI-安装部署&quot;&gt;&lt;a href=&quot;#OpenPAI-安装部署&quot; class=&quot;headerlink&quot; title=&quot;OpenPAI 安装部署&quot;&gt;&lt;/a&gt;OpenPAI 安装部署&lt;/h1&gt;&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Cluster" scheme="http://yoursite.com/categories/Cluster/"/>
+    
+    
+      <category term="OpenPAI" scheme="http://yoursite.com/tags/OpenPAI/"/>
+    
+      <category term="Deep learning" scheme="http://yoursite.com/tags/Deep-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Jupyter notebook配置</title>
