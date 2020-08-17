@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    257
+                    215
                 </div>
                 
 
@@ -496,32 +496,14 @@
 <pre><code>&gt;&gt;&gt;from notebook.auth import passwd
 &gt;&gt;&gt;passwd()</code></pre><p>根据提示输入两遍要设置的密码,即可生成sha1的密文.</p>
 <p>生成配置文件<br><code>jupyter notebook --generate-config</code><br>打开配置文件进行相关设置<br><code>vi ~/.jupyter/jupyter_notebook_config.py</code></p>
-<pre><code>c.NotebookApp.ip = '*'  # 设置局域网内所有IP均可访问
-c.NotebookApp.password = u'sha1:...'  # 设置密码,填入上面生成的sha1密文
+<pre><code>c.NotebookApp.ip = &#39;*&#39;  # 设置局域网内所有IP均可访问
+c.NotebookApp.password = u&#39;sha1:...&#39;  # 设置密码,填入上面生成的sha1密文
 c.NotebookApp.open_browser = False  # 设置不自动打开浏览器
-c.NotebookApp.port = '8888'  # 设置访问端口
-c.NotebookApp.notebook_dir = '/home/user/Jupyter'  # 设置工作目录</code></pre><h2 id="添加Anaconda虚拟环境"><a href="#添加Anaconda虚拟环境" class="headerlink" title="添加Anaconda虚拟环境"></a>添加Anaconda虚拟环境</h2><p>切换虚拟环境｀source activate ＜env_name&gt;｀</p>
+c.NotebookApp.port = &#39;8888&#39;  # 设置访问端口
+c.NotebookApp.notebook_dir = &#39;/home/user/Jupyter&#39;  # 设置工作目录</code></pre><h2 id="添加Anaconda虚拟环境"><a href="#添加Anaconda虚拟环境" class="headerlink" title="添加Anaconda虚拟环境"></a>添加Anaconda虚拟环境</h2><p>切换虚拟环境｀source activate ＜env_name&gt;｀</p>
 <p>虚拟环境中安装ipykernel包并设置Notebook中显示的环境名称</p>
 <pre><code>conda install ipykernel
-python -m ipykernel install --user --name &lt;env_name&gt; --display-name "&lt;display_name&gt;"</code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+python -m ipykernel install --user --name &lt;env_name&gt; --display-name &quot;&lt;display_name&gt;&quot;</code></pre>
             </div>
             <hr/>
 
@@ -793,8 +775,8 @@ Ubuntu 16.04(18.
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Cluster/" class="post-category">
-                                    Cluster
+                            <a href="/categories/Technology/" class="post-category">
+                                    Technology
                                 </a>
                             
                             
@@ -808,8 +790,8 @@ Ubuntu 16.04(18.
                         <span class="chip bg-color">OpenPAI</span>
                     </a>
                     
-                    <a href="/tags/Deep-learning/">
-                        <span class="chip bg-color">Deep learning</span>
+                    <a href="/tags/Deep-learning-Cluster/">
+                        <span class="chip bg-color">Deep learning Cluster</span>
                     </a>
                     
                 </div>
@@ -1104,7 +1086,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.1k</span>&nbsp;字
+                class="white-color">1.9k</span>&nbsp;字
             
             
             

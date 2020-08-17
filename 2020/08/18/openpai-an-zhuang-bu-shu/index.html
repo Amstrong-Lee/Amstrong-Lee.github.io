@@ -436,8 +436,8 @@
                                 <span class="chip bg-color">OpenPAI</span>
                             </a>
                         
-                            <a href="/tags/Deep-learning/">
-                                <span class="chip bg-color">Deep learning</span>
+                            <a href="/tags/Deep-learning-Cluster/">
+                                <span class="chip bg-color">Deep learning Cluster</span>
                             </a>
                         
                     </div>
@@ -448,8 +448,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Cluster/" class="post-category">
-                                Cluster
+                            <a href="/categories/Technology/" class="post-category">
+                                Technology
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    545
+                    565
                 </div>
                 
 
@@ -530,51 +530,36 @@ password: &lt;ssh密码&gt;
 branch_name: pai-1.1.y
 docker_image_tag: v1.1.1
 
-gcr_image_repo: "gcr.azk8s.cn"
-kube_image_repo: "gcr.azk8s.cn/google-containers"
-kubeadm_download_url: "https://shaiictestblob01.blob.core.chinacloudapi.cn/share-all/kubeadm"
-hyperkube_download_url: "https://shaiictestblob01.blob.core.chinacloudapi.cn/share-all/hyperkube"
+gcr_image_repo: &quot;gcr.azk8s.cn&quot;
+kube_image_repo: &quot;gcr.azk8s.cn/google-containers&quot;
+kubeadm_download_url: &quot;https://shaiictestblob01.blob.core.chinacloudapi.cn/share-all/kubeadm&quot;
+hyperkube_download_url: &quot;https://shaiictestblob01.blob.core.chinacloudapi.cn/share-all/hyperkube&quot;
 
 openpai_kubespray_extra_var:
-  pod_infra_image_repo: "gcr.azk8s.cn/google_containers/pause-{{ image_arch }}"
-  dnsautoscaler_image_repo: "gcr.azk8s.cn/google_containers/cluster-proportional-autoscaler-{{ image_arch }}"
-  tiller_image_repo: "gcr.azk8s.cn/kubernetes-helm/tiller"
-  registry_proxy_image_repo: "gcr.azk8s.cn/google_containers/kube-registry-proxy"
-  metrics_server_image_repo: "gcr.azk8s.cn/google_containers/metrics-server-amd64"
-  addon_resizer_image_repo: "gcr.azk8s.cn/google_containers/addon-resizer"
-  dashboard_image_repo: "gcr.azk8s.cn/google_containers/kubernetes-dashboard-{{ image_arch }}"</code></pre><p>国内安装可将镜像源‘gcr.azk8s.cn’更换为：</p>
-<pre><code>registry.cn-hangzhou.aliyuncs.com/google_containers/
+pod_infra_image_repo: &quot;gcr.azk8s.cn/google_containers/pause-{{ image_arch }}&quot;
+dnsautoscaler_image_repo: &quot;gcr.azk8s.cn/google_containers/cluster-proportional-autoscaler-{{ image_arch }}&quot;
+tiller_image_repo: &quot;gcr.azk8s.cn/kubernetes-helm/tiller&quot;
+registry_proxy_image_repo: &quot;gcr.azk8s.cn/google_containers/kube-registry-proxy&quot;
+metrics_server_image_repo: &quot;gcr.azk8s.cn/google_containers/metrics-server-amd64&quot;
+addon_resizer_image_repo: &quot;gcr.azk8s.cn/google_containers/addon-resizer&quot;
+dashboard_image_repo: &quot;gcr.azk8s.cn/google_containers/kubernetes-dashboard-{{ image_arch }}&quot;</code></pre><p><strong>网络很重要，国内安装需要找到可用的镜像源,可将镜像源‘gcr.azk8s.cn’更换为</strong>：</p>
+<pre><code>registry.cn-hangzhou.aliyuncs.com/google_containers/ #无cluster-proportional-autoscaler-amd64:1.6.0镜像
 registry.cn-hangzhou.aliyuncs.com/vinc-k8s/</code></pre><ul>
-<li>开始安装<pre><code>git clone https://github.com/microsoft/pai.git
+<li><p>开始安装<br>克隆OpenPAI工程</p>
+<pre><code>git clone https://github.com/microsoft/pai.git
 git checkout pai-1.1.y  # change to a different branch if you want to deploy a different version
-cd pai/contrib/kubespray
-
-</code></pre></li>
+cd pai/contrib/kubespray</code></pre><p>安装并启动k8s</p>
+<pre><code>/bin/bash quick-start-kubespray.sh -m /path/to/master.csv -w /path/to/worker.csv -c /path/to/config</code></pre><p>安装启动OpenPAI服务</p>
+<pre><code>/bin/bash quick-start-service.sh -m /path/to/master.csv -w /path/to/worker.csv -c /path/to/config</code></pre></li>
+<li><p>安装结束</p>
+<pre><code>Kubernetes cluster config :     ~/pai-deploy/kube/config
+OpenPAI cluster config    :     ~/pai-deploy/cluster-cfg
+OpenPAI cluster ID        :     pai
+Default username          :     admin
+Default password          :     admin-password
+You can go to http://&lt;your-master-ip&gt;, then use the default username and password to log in.</code></pre></li>
 </ul>
-<p>/bin/bash quick-start-kubespray.sh -m /path/to/master.csv -w /path/to/worker.csv -c /path/to/config</p>
-<p>/bin/bash quick-start-service.sh -m /path/to/master.csv -w /path/to/worker.csv -c /path/to/config</p>
-<pre><code>
-- 安装结束</code></pre><p>Kubernetes cluster config :     ~/pai-deploy/kube/config<br>OpenPAI cluster config    :     ~/pai-deploy/cluster-cfg<br>OpenPAI cluster ID        :     pai<br>Default username          :     admin<br>Default password          :     admin-password</p>
-<p>You can go to http://<your-master-ip>, then use the default username and password to log in.</your-master-ip></p>
-<pre><code></code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -641,8 +626,8 @@ cd pai/contrib/kubespray
                                     <span class="chip bg-color">OpenPAI</span>
                                 </a>
                             
-                                <a href="/tags/Deep-learning/">
-                                    <span class="chip bg-color">Deep learning</span>
+                                <a href="/tags/Deep-learning-Cluster/">
+                                    <span class="chip bg-color">Deep learning Cluster</span>
                                 </a>
                             
                         </div>
@@ -847,8 +832,8 @@ Ubuntu 16.04(18.
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Cluster/" class="post-category">
-                                    Cluster
+                            <a href="/categories/Technology/" class="post-category">
+                                    Technology
                                 </a>
                             
                             
@@ -863,8 +848,8 @@ Ubuntu 16.04(18.
                         <span class="chip bg-color">OpenPAI</span>
                     </a>
                     
-                    <a href="/tags/Deep-learning/">
-                        <span class="chip bg-color">Deep learning</span>
+                    <a href="/tags/Deep-learning-Cluster/">
+                        <span class="chip bg-color">Deep learning Cluster</span>
                     </a>
                     
                 </div>
@@ -1163,7 +1148,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.1k</span>&nbsp;字
+                class="white-color">1.9k</span>&nbsp;字
             
             
             
