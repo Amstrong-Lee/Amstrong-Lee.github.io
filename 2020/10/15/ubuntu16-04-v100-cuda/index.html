@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Become a blogger, Endless">
+    <meta name="keywords" content="Ubuntu16.04+V100 CUDA, Endless">
     <meta name="description" content="Roses given, fragrance in hand.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Become a blogger | Endless</title>
+    <title>Ubuntu16.04+V100 CUDA | Endless</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Become a blogger</h1>
+                    <h1 class="description center-align post-title">Ubuntu16.04+V100 CUDA</h1>
                 </div>
             </div>
         </div>
@@ -432,18 +432,23 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
-                            </a>
-                        
-                            <a href="/tags/Github-Pages/">
-                                <span class="chip bg-color">Github Pages</span>
+                            <a href="/tags/Deep-learning-Environment/">
+                                <span class="chip bg-color">Deep learning Environment</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Technology/" class="post-category">
+                                Technology
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -452,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-06
+                    2020-10-15
                 </div>
                 
 
@@ -461,7 +466,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    297
+                    290
                 </div>
                 
 
@@ -483,56 +488,25 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Become-a-blogger"><a href="#Become-a-blogger" class="headerlink" title="Become a blogger"></a>Become a blogger</h1><p>Objective: Create a personal blog using hexo and github pages</p>
-<p>OS enviroment: Ubuntu 18.04</p>
-<h2 id="Install-the-necessary-softwares"><a href="#Install-the-necessary-softwares" class="headerlink" title="Install the necessary softwares"></a>Install the necessary softwares</h2><ol>
-<li>Install the Git <code>$ sudo apt-get install git-core</code></li>
-<li>Install the Nodejs <code>$ sudo apt-get install nodejs</code></li>
-<li>Install the Hexo<pre><code>$ sudo apt-get install npm
-$ npm install -g hexo-cli</code></pre></li>
+                <h1 id="Ubuntu16-04-V100-Cuda"><a href="#Ubuntu16-04-V100-Cuda" class="headerlink" title="Ubuntu16.04+V100 Cuda"></a>Ubuntu16.04+V100 Cuda</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>Ubuntu16.04.7 Server with Tesla V100</li>
+<li>NVIDIA-Linux-x86_64-450.80.02.run</li>
+<li>cuda-11.0.2_450.51.05_linux.run</li>
+</ul>
+<h2 id="系统环境准备"><a href="#系统环境准备" class="headerlink" title="系统环境准备"></a>系统环境准备</h2><ol>
+<li>查看GPU信息<br><code>$ lspci | grep -i nvidia</code></li>
+<li>验证gcc<br><code>gcc --version</code><br><code>sudo apt-get install gcc</code></li>
+<li>验证kernel版本对应的kernel header和package development<br><code>sudo apt-get install linux-headers-$(uname -r)</code></li>
+<li>禁用nouveau驱动<br><code>lsmod | grep nouveau</code><br>有输出表示nouveau在加载中，需禁用。编辑配置文件<br><code>sudo vi /etc/modprobe.d/blacklist.conf</code><br>在文件底部添加两行内容：<br><code>blacklist nouveau</code><br><code>options nouveau modeset=0</code><br>输入下面命令使禁用生效<br><code>sudo update-initramfs -u</code><br>重启验证是否生效<h2 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h2><code>sudo chmod +x NVIDIA-Linux-x86_64-450.80.02.run</code><br><code>sudo sh NVIDIA-Linux-x86_64-450.80.02.run --no-opengl-files</code><br><code>nvidia-smi</code><h3 id="cuda安装"><a href="#cuda安装" class="headerlink" title="cuda安装"></a>cuda安装</h3><code>sudo chmod +x cuda-11.0.2_450.51.05_linux.run --no-opengl-libs</code><br><code>sudo sh cuda-11.0.2_450.51.05_linux.run</code><br>等待提示输入“accept”，组件选择取消勾选cuda driver。</li>
 </ol>
-<h2 id="Setup-the-blog"><a href="#Setup-the-blog" class="headerlink" title="Setup the blog"></a>Setup the blog</h2><ol>
-<li>Initialize hexo in target folder “BlogSite”<pre><code>$ hexo init BlogSite
-$ cd BlogSite
-$ npm install</code></pre></li>
-<li>Configure the basic information about the blog in file “_config.yml”</li>
-</ol>
-<h2 id="Change-the-theme-to-matery"><a href="#Change-the-theme-to-matery" class="headerlink" title="Change the theme to matery"></a>Change the theme to matery</h2><ol>
-<li>Clone the matery theme files <code>$ git clone https://github.com/blinkfox/hexo-theme-matery.git</code></li>
-<li>Change the theme in configuration file “_config.yml”</li>
-<li>Create menu pages<pre><code>$ hexo new page &quot;categories&quot;
-$ hexo new page &quot;tags&quot;
-$ hexo new page &quot;about&quot;
-$ hexo new page &quot;contact&quot;
-$ hexo new page &quot;friends&quot;</code></pre></li>
-<li>Edit the contents of pages in “/source/<page>/index”</li>
-<li>Configure highlight <code>$ npm i -S hexo-prism-plugin</code></li>
-<li>Configure searching <code>$ npm install hexo-generator-search --save</code></li>
-<li>Configure Pinyin link <code>$ npm i hexo-permalink-pinyin --save</code></li>
-<li>Configure wordcount <code>$ npm i hexo-wordcount --save</code></li>
-<li>Configure emoji <code>$ npm install hexo-filter-github-emojis --save</code></li>
-<li>Configure RSS <code>$ npm install hexo-generator-feed --save</code></li>
-</ol>
-<h2 id="Configure-Github-Pages"><a href="#Configure-Github-Pages" class="headerlink" title="Configure Github Pages"></a>Configure Github Pages</h2><ol>
-<li>Sign up github and create a new repository with the github username</li>
-<li>Configure SSH<pre><code>$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;
-$ cat ~/.ssh/id_rsa.pub</code></pre></li>
-<li>Copy the rsa key to the github</li>
-<li>Test the connection <code>$ ssh -T git@github.com</code></li>
-<li>Configure personal information</li>
-</ol>
-<h2 id="Deploy-to-github"><a href="#Deploy-to-github" class="headerlink" title="Deploy to github"></a>Deploy to github</h2><ol>
-<li>Edit the blog configuration file “_config.yml”</li>
-<li>Deploy to github<pre><code>$ cd BlogSite
-$ hexo clean
-$ hexo g -d</code></pre></li>
-<li>Open the browser and enter the url of your address</li>
-</ol>
-<p>Reference:</p>
 <ul>
-<li><a href="https://hexo.io./zh-cn/docs" target="_blank" rel="noopener">https://hexo.io./zh-cn/docs</a></li>
-<li><a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">https://github.com/blinkfox/hexo-theme-matery</a></li>
-<li><a href="https://blog.csdn.net/grave2015/article/details/79961843" target="_blank" rel="noopener">https://blog.csdn.net/grave2015/article/details/79961843</a></li>
+<li>Device  Node Verification<br><code>ls /dev/nvidia*</code></li>
+</ul>
+<p><code>sudo vi /etc/rc.local</code><br>/usr/local/cuda/samples/1_Utilities/deviceQuery<br>sudo make<br>./deviceQuery<br>ls -la /dev | grep nvidia</p>
+<h3 id="Cudnn"><a href="#Cudnn" class="headerlink" title="Cudnn"></a>Cudnn</h3><p>tar -xvf cudnn-11.0-linux-x64-v8.0.4.30.tgz<br>sudo cp cuda/inclide/cudnn.h /usr/local/cuda/include/<br>sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64/<br>sudo chmod a+x /usr/local/cuda/include/cudnn.h<br>sudo chmod a+x /usr/local/cuda/lib64/libcudnn*</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li>zhuanlan.zhihu.com/p/47330858</li>
+<li>docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html</li>
 </ul>
 
             </div>
@@ -559,7 +533,7 @@ $ hexo g -d</code></pre></li>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/06/become-a-blogger/">http://yoursite.com/2020/07/06/become-a-blogger/</a>
+                    <a href="http://yoursite.com/2020/10/15/ubuntu16-04-v100-cuda/">http://yoursite.com/2020/10/15/ubuntu16-04-v100-cuda/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -597,12 +571,8 @@ $ hexo g -d</code></pre></li>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
-                                </a>
-                            
-                                <a href="/tags/Github-Pages/">
-                                    <span class="chip bg-color">Github Pages</span>
+                                <a href="/tags/Deep-learning-Environment/">
+                                    <span class="chip bg-color">Deep learning Environment</span>
                                 </a>
                             
                         </div>
@@ -770,33 +740,92 @@ $ hexo g -d</code></pre></li>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/07/10/ubuntu-network-setting/">
+                <a href="/2020/10/15/ubuntu16-04-v100-cuda/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Ubuntu Network Setting">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Ubuntu16.04+V100 CUDA">
                         
-                        <span class="card-title">Ubuntu Network Setting</span>
+                        <span class="card-title">Ubuntu16.04+V100 CUDA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Ubuntu网络设置目标： 解决Server版Ubuntu安装桌面后网络设置中看不到网卡，但命令行中可以看到
-解决方法
-更改网络配置程序为NetworkManager
-
-编辑netplan配置文件50-cloud-init.yml： $ s
+                            Ubuntu16.04+V100 Cuda准备工作
+Ubuntu16.04.7 Server with Tesla V100
+NVIDIA-Linux-x86_64-450.80.02.run
+cuda-11.0.2_450.51.05_l
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Technology/" class="post-category">
+                                    Technology
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Deep-learning-Environment/">
+                        <span class="chip bg-color">Deep learning Environment</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/18/openpai-an-zhuang-bu-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="OpenPAI安装部署">
+                        
+                        <span class="card-title">OpenPAI安装部署</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            OpenPAI 安装部署准备工作三类主机
+
+Dev Box
+Ubuntu 16.04(18.04 也可以)
+共享相同的用户名密码并具有超级权限,可SSH免密登录至其他主机
+安装Docker
+
+
+Master
+Ubuntu 16.04(18.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -812,57 +841,12 @@ $ hexo g -d</code></pre></li>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Ubuntu/">
-                        <span class="chip bg-color">Ubuntu</span>
+                    <a href="/tags/OpenPAI/">
+                        <span class="chip bg-color">OpenPAI</span>
                     </a>
                     
-                    <a href="/tags/Network/">
-                        <span class="chip bg-color">Network</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/01/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Amstrong Lee
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hello/">
-                        <span class="chip bg-color">Hello</span>
+                    <a href="/tags/Deep-learning-Cluster/">
+                        <span class="chip bg-color">Deep learning Cluster</span>
                     </a>
                     
                 </div>

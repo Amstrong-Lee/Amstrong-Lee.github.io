@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Ubuntu16.04+V100 CUDA</title>
+      <link href="/2020/10/15/ubuntu16-04-v100-cuda/"/>
+      <url>/2020/10/15/ubuntu16-04-v100-cuda/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Ubuntu16-04-V100-Cuda"><a href="#Ubuntu16-04-V100-Cuda" class="headerlink" title="Ubuntu16.04+V100 Cuda"></a>Ubuntu16.04+V100 Cuda</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul><li>Ubuntu16.04.7 Server with Tesla V100</li><li>NVIDIA-Linux-x86_64-450.80.02.run</li><li>cuda-11.0.2_450.51.05_linux.run</li></ul><h2 id="系统环境准备"><a href="#系统环境准备" class="headerlink" title="系统环境准备"></a>系统环境准备</h2><ol><li>查看GPU信息<br><code>$ lspci | grep -i nvidia</code></li><li>验证gcc<br><code>gcc --version</code><br><code>sudo apt-get install gcc</code></li><li>验证kernel版本对应的kernel header和package development<br><code>sudo apt-get install linux-headers-$(uname -r)</code></li><li>禁用nouveau驱动<br><code>lsmod | grep nouveau</code><br>有输出表示nouveau在加载中，需禁用。编辑配置文件<br><code>sudo vi /etc/modprobe.d/blacklist.conf</code><br>在文件底部添加两行内容：<br><code>blacklist nouveau</code><br><code>options nouveau modeset=0</code><br>输入下面命令使禁用生效<br><code>sudo update-initramfs -u</code><br>重启验证是否生效<h2 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h2><code>sudo chmod +x NVIDIA-Linux-x86_64-450.80.02.run</code><br><code>sudo sh NVIDIA-Linux-x86_64-450.80.02.run --no-opengl-files</code><br><code>nvidia-smi</code><h3 id="cuda安装"><a href="#cuda安装" class="headerlink" title="cuda安装"></a>cuda安装</h3><code>sudo chmod +x cuda-11.0.2_450.51.05_linux.run --no-opengl-libs</code><br><code>sudo sh cuda-11.0.2_450.51.05_linux.run</code><br>等待提示输入“accept”，组件选择取消勾选cuda driver。</li></ol><ul><li>Device  Node Verification<br><code>ls /dev/nvidia*</code></li></ul><p><code>sudo vi /etc/rc.local</code><br>/usr/local/cuda/samples/1_Utilities/deviceQuery<br>sudo make<br>./deviceQuery<br>ls -la /dev | grep nvidia</p><h3 id="Cudnn"><a href="#Cudnn" class="headerlink" title="Cudnn"></a>Cudnn</h3><p>tar -xvf cudnn-11.0-linux-x64-v8.0.4.30.tgz<br>sudo cp cuda/inclide/cudnn.h /usr/local/cuda/include/<br>sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64/<br>sudo chmod a+x /usr/local/cuda/include/cudnn.h<br>sudo chmod a+x /usr/local/cuda/lib64/libcudnn*</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li>zhuanlan.zhihu.com/p/47330858</li><li>docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Technology </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Deep learning Environment </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OpenPAI安装部署</title>
       <link href="/2020/08/18/openpai-an-zhuang-bu-shu/"/>
       <url>/2020/08/18/openpai-an-zhuang-bu-shu/</url>

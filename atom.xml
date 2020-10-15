@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-17T13:50:26.530Z</updated>
+  <updated>2020-10-15T14:41:11.586Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu16.04+V100 CUDA</title>
+    <link href="http://yoursite.com/2020/10/15/ubuntu16-04-v100-cuda/"/>
+    <id>http://yoursite.com/2020/10/15/ubuntu16-04-v100-cuda/</id>
+    <published>2020-10-15T09:04:56.000Z</published>
+    <updated>2020-10-15T14:41:11.586Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Ubuntu16-04-V100-Cuda&quot;&gt;&lt;a href=&quot;#Ubuntu16-04-V100-Cuda&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu16.04+V100 Cuda&quot;&gt;&lt;/a&gt;Ubuntu16.04+V100
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="Deep learning Environment" scheme="http://yoursite.com/tags/Deep-learning-Environment/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenPAI安装部署</title>
